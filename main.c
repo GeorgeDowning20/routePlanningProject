@@ -129,14 +129,14 @@ static enum status_e get_job_request(job_t *const job)
         return ERROR; // if the job is null return error
 
     // get job size
-    printf("Enter job size (number form 1-5): ");  // prompt the user for the job size
+    printf("Enter job size (number from 1-5): ");  // prompt the user for the job size
     if (scanf("%zu", &job->size) == ILLEGAL_INPUT) // if the user input is illegal
         return ILLEGAL_INPUT;                      // return illegal input to be processed by the main function
     if (!in_range(job->size, 1, MAX_JOB_SIZE))     // if the job size is not in range
         return INVALID_JOB_SIZE;                   // return invalid job size to be processed by the main function
 
     // get list of locations
-    printf("\nEnter job order (number form 1-10):\n"); // prompt the user for the job order
+    printf("\nEnter job order (number from 1-10):\n"); // prompt the user for the job order
     for (int i = 1; i < job->size + 1; i++)
     {
         printf("Enter postal code %d:", i);               // prompt the user for the postal code
@@ -331,20 +331,17 @@ int main()
         job_t job = {postal_register, 0, {0}}; // create a job object
 
         printf("Welcome to the delivery service!\nPlease enter your job request:\n\n"); // print welcome message
-
-        if (parse_errors(get_job_request(&job)) == FATAL_ERROR) // get the job request from the user if there is an error parse the error and restart the program
-            continue;                                           // continue to the next iteration of the loop
-
-        optimize_route(&job); // optimize the route
+        if (parse_errors(get_job_request(&job)) == FATAL_ERROR)                         // get the job request from the user if there is an error parse the error and restart the program
+            continue;                                                                   // continue to the next iteration of the loop
+        //
+        optimize_route(&job);                                                           // optimize the route
 
         printf("\n\nThe shortest possible route to travel is %f:\n", total_Distance(&job)); // print the total distance of the job
-
-        // print the order of the job
-        for (int i = 0; i < job.size + 2; i++) // iterate through the job order
-        {
-            printf("%s", job.postal_register[job.order[i]].name); // print the name of the postal code
-            if (i < job.size + 1)                                 // if the index is less than the size of the job
-                printf(" -> ");                                   // print the arrow
+        for (int i = 0; i < job.size + 2; i++)                                              // iterate through the job order
+        {   //
+            printf("%s", job.postal_register[job.order[i]].name);                           // print the name of the postal code
+            if (i < job.size + 1)                                                           // if the index is less than the size of the job
+                printf(" -> ");                                                             // print the arrow
         }
 
         printf("\n\n\n\n\n\n\n\n"); // print new lines
