@@ -41,14 +41,14 @@ static enum status_e get_job_request(job_t *const job)
         return ERROR; // if the job is null return error
 
     // get job size
-    printf("Enter job size (number from 1-5): ");  // prompt the user for the job size
+    printf("Enter job size (number from 1-%i): ",MAX_JOB_SIZE);  // prompt the user for the job size
     if (scanf("%zu", &job->size) == ILLEGAL_INPUT) // if the user input is illegal
         return ILLEGAL_INPUT;                      // return illegal input to be processed by the main function
     if (!in_range(job->size, 1, MAX_JOB_SIZE))     // if the job size is not in range
         return INVALID_JOB_SIZE;                   // return invalid job size to be processed by the main function
 
     // get list of locations
-    printf("\nEnter job order (number from 1-10):\n"); // prompt the user for the job order
+    printf("\nEnter job order (number from 1-%i):\n",MAX_POSTAL_CODE); // prompt the user for the job order
     for (int i = 1; i < job->size + 1; i++)
     {
         printf("Enter postal code %d:", i);               // prompt the user for the postal code
