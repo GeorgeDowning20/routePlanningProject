@@ -8,6 +8,7 @@
 // Copyright (c) 2022 G. Downing
 // Description: header file for program to find the fastest route to deliver up to 5 packages
 //-------------------------------------------------------------
+
 #pragma once
 
 #include <stdio.h> //for printf
@@ -84,7 +85,7 @@ typedef struct job_s
 // required headers: math.h
 static double distance_Between_Locations(const location_t *a, const location_t *b);
 
-// function: total_distance
+// function: total_Distance
 // description: calculates the total distance of a journey
 // input: pointer to the postal register, pointer to the job, size of the job
 // output: total distance of the journey
@@ -135,20 +136,7 @@ static void trial_order(job_t *const job, const enum mode_e mode);
 // required headers: none
 static void swap(int *const a, int *const b);
 
-// function: permute
-// description: recursively generates all permutations of the job order and calculates the total distance of each permutation to find the shortest order
-// input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
-// output: writes the shortest order to the the job object
-// arguments: pointer to the job, start index, end index
-// return: void
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: none
-static void _permute(job_t *const job_buff, int l, int r);
-
-// function: permute
+// function: _permute
 // description: recursively generates all permutations of the job order and calculates the total distance of each permutation to find the shortest order
 // input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
 // output: writes the shortest order to the the job object
