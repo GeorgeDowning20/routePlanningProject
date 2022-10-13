@@ -202,6 +202,6 @@ int main()
 
         printf("Press any key to continue...\n"); // prompt the user to press any key to continue
         while (getchar() == '\n')
-            ; // while the user has not pressed a key
+            ; // wait while the user has not pressed a key
     }
 }
