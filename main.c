@@ -1,12 +1,12 @@
 //-------------------------------------------------------------
-// path: main.c
-// author: G. Downing
-// created on: 10-10-2022
-// last modified: 10-10-2022
-// version: 1.0
-// language: c
-// Copyright (c) 2022 G. Downing
-// Description: program to find the fastest route to deliver up to 5 packages
+// @path: main.c
+// @author: G. Downing
+// @created on: 10-10-2022
+// @last modified: 10-10-2022
+// @version: 1.0
+// @language: c
+// @Copyright (c) 2022 G. Downing
+// @Description: program to find the fastest route to deliver up to 5 packages
 //-------------------------------------------------------------
 
 #include "main.h"
