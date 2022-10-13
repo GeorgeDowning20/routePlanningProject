@@ -17,8 +17,9 @@
 
 #include <stdio.h> //for printf
 #include <math.h>  //for sqrt
+
 // Configuration
-//#define LIMIT_JOB_SIZE // limit the job size to 5
+#define LIMIT_JOB_SIZE // limit the job size to 5
 
 // define constants
 #define MAX_POSTAL_CODE sizeof(postal_register) / sizeof(location_t) - 1 // max postal code is the size of the postal register divided by the size of a location_t
