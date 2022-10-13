@@ -11,6 +11,10 @@
 
 #include "main.h"
 
+//-------------------------------------------------------------
+//                  Function Definitions
+//-------------------------------------------------------------
+
 static double distance_Between_Locations(const location_t *a, const location_t *b)
 {
     int dx = a->x - b->x;           // x distance between a and b
@@ -166,6 +170,10 @@ static enum status_e parse_errors(const enum status_e status)
 
     return status; // return the status
 }
+
+//-------------------------------------------------------------
+//                  Main Program
+//-------------------------------------------------------------
 
 // @function: main
 // @description: main function to run the program. first the user is prompted to enter enter a job. next the route is optimized and displayed

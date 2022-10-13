@@ -9,21 +9,35 @@
 // @Description: header file for program to find the fastest route to deliver up to 5 packages
 //-------------------------------------------------------------
 
+//-------------------------------------------------------------
+//                  Preprocessor directives
+//-------------------------------------------------------------
+
 #pragma once
 
 #include <stdio.h> //for printf
 #include <math.h>  //for sqrt
+// Configuration
+#define LIMIT_JOB_SIZE // limit the job size to 5
 
-//define constants
+// define constants
 #define MAX_POSTAL_CODE sizeof(postal_register) / sizeof(location_t) // max postal code is the size of the postal register divided by the size of a location_t
+#ifdef LIMIT_JOB_SIZE                                                // if the job size is limited
 #define MAX_JOB_SIZE 5                                               // max job size is 5
+#else                                                                // if the job size is not limited
+#define MAX_JOB_SIZE MAX_POSTAL_CODE                                 // max job size is the max postal code
+#endif                                                               // end if
 #define MAX_JOURNEY_SIZE MAX_JOB_SIZE + 2                            // max journey size is the max job size plus 2 (start and end)
 #define ever \
     ;        \
     ; // for(ever) ultimate readability
 
-//function like macros
+// function like macros
 #define in_range(x, min, max) ((x) >= (min) && (x) <= (max)) // checks if x is in range of min and max
+
+//-------------------------------------------------------------
+//                  Data types and structures
+//-------------------------------------------------------------
 
 // status enum for the program
 enum status_e
@@ -74,6 +88,10 @@ typedef struct job_s
     size_t size;                       // size of the job
     int order[MAX_JOURNEY_SIZE];       // order in which the job should be completed
 } job_t;
+
+//-------------------------------------------------------------
+//                  Function prototypes
+//-------------------------------------------------------------
 
 // @function: distance_Between_Locations
 // @description: calculates the distance between two locations
