@@ -167,17 +167,17 @@ static enum status_e parse_errors(const enum status_e status)
     return status; // return the status
 }
 
-// function: main
-// description: main function to run the program. first the user is prompted to enter enter a job. next the route is optimized and displayed
-// input: job specification
-// output: fastest route to complete job
-// arguments: none
-// return: void
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: stdio.h, math.h
+// @function: main
+// @description: main function to run the program. first the user is prompted to enter enter a job. next the route is optimized and displayed
+// @input: job specification
+// @output: fastest route to complete job
+// @arguments: none
+// @return: void
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: stdio.h, math.h
 int main()
 {
     for (ever)
