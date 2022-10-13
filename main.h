@@ -1,12 +1,12 @@
 //-------------------------------------------------------------
-// path: main.h
-// author: G. Downing
-// created on: 10-10-2022
-// last modified: 10-10-2022
-// version: 1.0
-// language: c
-// Copyright (c) 2022 G. Downing
-// Description: header file for program to find the fastest route to deliver up to 5 packages
+// @path: main.h
+// @author: G. Downing
+// @created on: 10-10-2022
+// @last modified: 10-10-2022
+// @version: 1.0
+// @language: c
+// @Copyright (c) 2022 G. Downing
+// @Description: header file for program to find the fastest route to deliver up to 5 packages
 //-------------------------------------------------------------
 
 #pragma once
@@ -73,104 +73,104 @@ typedef struct job_s
     int order[MAX_JOURNEY_SIZE];       // order in which the job should be completed
 } job_t;
 
-// function: distance_Between_Locations
-// description: calculates the distance between two locations
-// input: two locations
-// output: distance between the two locations
-// arguments: pointers to two locations
-// return: distance between the two locations
-// author: G. Downing
-// version: 1.0
-// language: c
-// required headers: math.h
+// @function: distance_Between_Locations
+// @description: calculates the distance between two locations
+// @input: two locations
+// @output: distance between the two locations
+// @arguments: pointers to two locations
+// @return: distance between the two locations
+// @author: G. Downing
+// @version: 1.0
+// @language: c
+// @required headers: math.h , main.h for sqrt and location_t
 static double distance_Between_Locations(const location_t *a, const location_t *b);
 
-// function: total_Distance
-// description: calculates the total distance of a journey
-// input: pointer to the postal register, pointer to the job, size of the job
-// output: total distance of the journey
-// arguments: pointer to the job
-// return: total distance of the journey
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: none
+// @function: total_Distance
+// @description: calculates the total distance of a journey
+// @input: pointer to the postal register, pointer to the job, size of the job
+// @output: total distance of the journey
+// @arguments: pointer to the job
+// @return: total distance of the journey
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: main.h for job_t
 static float total_Distance(job_t *const job);
 
-// function: get_job_request
-// description: gets the job request from the user
-// input: pointer to the postal register, pointer to the job, size of the job, user input
-// output: job request, GUI, status
-// arguments: pointer to the job
-// return: status of the function
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: stdio.h
+// @function: get_job_request
+// @description: gets the job request from the user
+// @input: pointer to the postal register, pointer to the job, size of the job, user input
+// @output: job request, GUI, status
+// @arguments: pointer to the job
+// @return: status of the function
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: stdio.h, main.h for printf, job_t, status_e
 static enum status_e get_job_request(job_t *const job);
 
-// function: trial_order
-// description: calculates the total distance of a trial order and stores shortest order in cache
-// input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
-// output: writes the shortest order to the the job object
-// arguments: pointer to the job, operation mode
-// return: void
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: none
+// @function: trial_order
+// @description: calculates the total distance of a trial order and stores shortest order in cache
+// @input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
+// @output: writes the shortest order to the the job object
+// @arguments: pointer to the job, operation mode
+// @return: void
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: main.h for job_t, mode_e
 static void trial_order(job_t *const job, const enum mode_e mode);
 
-// function: swap
-// description: swaps two elements in an array
-// input: pointers to each integer to be swapped
-// output: swaps the two integers
-// return: void
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: none
+// @function: swap
+// @description: swaps two elements in an array
+// @input: pointers to each integer to be swapped
+// @output: swaps the two integers
+// @return: void
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: none
 static void swap(int *const a, int *const b);
 
-// function: _permute
-// description: recursively generates all permutations of the job order and calculates the total distance of each permutation to find the shortest order
-// input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
-// output: writes the shortest order to the the job object
-// arguments: pointer to the job, start index, end index
-// return: void
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: none
+// @function: _permute
+// @description: recursively generates all permutations of the job order and calculates the total distance of each permutation to find the shortest order
+// @input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
+// @output: writes the shortest order to the the job object
+// @arguments: pointer to the job, start index, end index
+// @return: void
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: main.h for job_t
 static void _permute(job_t *const job_buff, int l, int r);
 
-// function: optimize_route
-// description: optimizes the route by generating all permutations of the job order
-// input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
-// output: writes the shortest order to the the job object
-// arguments: pointer to the job
-// return: void
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: none
+// @function: optimize_route
+// @description: optimizes the route by generating all permutations of the job order
+// @input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
+// @output: writes the shortest order to the the job object
+// @arguments: pointer to the job
+// @return: void
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: main.h for job_t
 static void optimize_route(job_t *const job);
 
-// function: parse_errors
-// description: prints an error message to the user and determines if the program should exit
-// input: error code
-// output: prints an error message to the user
-// arguments: error code
-// return: status code
-// author: G. Downing
-// date: 10-10-2022
-// version: 1.0
-// language: c
-// required headers: stdio.h
+// @function: parse_errors
+// @description: prints an error message to the user and determines if the program should exit
+// @input: error code
+// @output: prints an error message to the user
+// @arguments: error code
+// @return: status code
+// @author: G. Downing
+// @date: 10-10-2022
+// @version: 1.0
+// @language: c
+// @required headers: stdio.h, main.h for printf and status_e
 static enum status_e parse_errors(const enum status_e status);
