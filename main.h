@@ -14,6 +14,7 @@
 #include <stdio.h> //for printf
 #include <math.h>  //for sqrt
 
+//define constants
 #define MAX_POSTAL_CODE sizeof(postal_register) / sizeof(location_t) // max postal code is the size of the postal register divided by the size of a location_t
 #define MAX_JOB_SIZE 5                                               // max job size is 5
 #define MAX_JOURNEY_SIZE MAX_JOB_SIZE + 2                            // max journey size is the max job size plus 2 (start and end)
@@ -21,6 +22,7 @@
     ;        \
     ; // for(ever) ultimate readability
 
+//function like macros
 #define in_range(x, min, max) ((x) >= (min) && (x) <= (max)) // checks if x is in range of min and max
 
 // status enum for the program
