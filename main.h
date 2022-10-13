@@ -129,7 +129,7 @@ static float total_Distance(job_t *const job);
 // @date: 10-10-2022
 // @version: 1.0
 // @language: c
-// @required headers: stdio.h, main.h for printf, job_t, status_e
+// @required headers: stdio.h, main.h for printf, scanf, job_t and status_e
 static enum status_e get_job_request(job_t *const job);
 
 // @function: trial_order
