@@ -67,21 +67,6 @@ typedef struct location_s
     char name[20]; // name of the location
 } location_t;
 
-// postal register containing all possible locations for parcels can be grown as needed
-const location_t postal_register[] = {
-    {0, 0, "Depot"},        // depot
-    {9, 8, "location 1"},   // location 1
-    {6, 8, "location 2"},   // location 2
-    {7, 8, "location 3"},   // location 3
-    {1, 1, "location 4"},   // location 4
-    {21, 11, "location 5"}, // location 5
-    {7, 11, "location 6"},  // location 6
-    {11, 11, "location 7"}, // location 7
-    {5, 5, "location 8"},   // location 8
-    {9, 9, "location 9"},   // location 9
-    {8, 1, "location 10"}   // location 10
-};
-
 // job struct for the job list
 typedef struct job_s
 {
@@ -101,8 +86,7 @@ typedef struct job_s
 // @arguments: pointers to two locations
 // @return: distance between the two locations
 // @author: G. Downing
-// @version: 1.0
-// @language: c
+// @date: 10-10-2022
 // @required headers: math.h , main.h for sqrt and location_t
 static double distance_Between_Locations(const location_t *a, const location_t *b);
 
@@ -114,8 +98,6 @@ static double distance_Between_Locations(const location_t *a, const location_t *
 // @return: total distance of the journey
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: main.h for job_t
 static float total_Distance(job_t *const job);
 
@@ -127,8 +109,6 @@ static float total_Distance(job_t *const job);
 // @return: status of the function
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: stdio.h, main.h for printf, scanf, job_t and status_e
 static enum status_e get_job_request(job_t *const job);
 
@@ -140,8 +120,6 @@ static enum status_e get_job_request(job_t *const job);
 // @return: void
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: main.h for job_t, mode_e
 static void trial_order(job_t *const job, const enum mode_e mode);
 
@@ -152,8 +130,6 @@ static void trial_order(job_t *const job, const enum mode_e mode);
 // @return: void
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: none
 static void swap(int *const a, int *const b);
 
@@ -165,8 +141,6 @@ static void swap(int *const a, int *const b);
 // @return: void
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: main.h for job_t
 static void _permute(job_t *const job_buff, int l, int r);
 
@@ -178,8 +152,6 @@ static void _permute(job_t *const job_buff, int l, int r);
 // @return: void
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: main.h for job_t
 static void optimize_route(job_t *const job);
 
@@ -191,7 +163,5 @@ static void optimize_route(job_t *const job);
 // @return: status code
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: stdio.h, main.h for printf and status_e
 static enum status_e parse_errors(const enum status_e status);

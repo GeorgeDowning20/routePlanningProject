@@ -9,7 +9,8 @@
 // @Description: program to find the fastest route to deliver up to 5 packages
 //-------------------------------------------------------------
 
-#include "main.h"
+#include "main.h"              // include the header file
+#include "Postal_Register.inc" // include the postal register database
 
 //-------------------------------------------------------------
 //                  Function Definitions
@@ -48,7 +49,7 @@ static enum status_e get_job_request(job_t *const job)
         return INVALID_JOB_SIZE;                                 // return invalid job size to be processed by the main function
 
     // get list of locations
-    printf("\nEnter job order (number from 1-%i):\n", MAX_POSTAL_CODE); // prompt the user for the job order
+    printf("\nEnter job order (number from 1-%lu):\n", MAX_POSTAL_CODE); // prompt the user for the job order
     for (int i = 1; i < job->size + 1; i++)
     {
         printf("Enter postal code %d:", i);               // prompt the user for the postal code
@@ -183,8 +184,6 @@ static enum status_e parse_errors(const enum status_e status)
 // @return: void
 // @author: G. Downing
 // @date: 10-10-2022
-// @version: 1.0
-// @language: c
 // @required headers: stdio.h, math.h
 int main()
 {
@@ -192,9 +191,9 @@ int main()
     {
         job_t job = {postal_register, 0, {0}}; // create a job object
 
-        printf("Welcome to the delivery service!\nPlease enter your job request:\n\n"); // print welcome message
-        if (parse_errors(get_job_request(&job)) == FATAL_ERROR)                         // get the job request from the user if there is an error parse the error and restart the program
-            continue;                                                                   // continue to the next iteration of the loop
+        printf("\n\n\n\n\n\n\n\nWelcome to the delivery service!\nPlease enter your job request:\n\n"); // print welcome message
+        if (parse_errors(get_job_request(&job)) == FATAL_ERROR)                                         // get the job request from the user if there is an error parse the error and restart the program
+            continue;                                                                                   // continue to the next iteration of the loop
         //
         optimize_route(&job); // optimize the route
 
