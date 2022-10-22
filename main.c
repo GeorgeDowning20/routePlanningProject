@@ -133,7 +133,7 @@ static enum status_e parse_errors(const enum status_e status)
     switch (status) // switch statement to determine which error message to print
     {
     case OK:   // no error
-                break; // break out of the switch statement
+        break; // break out of the switch statement
 
     case INVALID_POSTAL_CODE:              // invalid postal code
         printf("\nInvalid postal code\n"); // print error message
@@ -199,7 +199,7 @@ int main()
 
         printf("\n\nThe shortest possible route to travel is %f:\n", total_Distance(&job)); // print the total distance of the job
         for (int i = 0; i < job.size + 2; i++)                                              // iterate through the job order
-        {   //
+        {                                                                                   //
             printf("%s", job.postal_register[job.order[i]].name);                           // print the name of the postal code
             if (i < job.size + 1)                                                           // if the index is less than the size of the job
                 printf(" -> ");                                                             // print the arrow
