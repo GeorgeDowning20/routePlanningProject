@@ -16,14 +16,21 @@
 //                  Function Definitions
 //-------------------------------------------------------------
 
-static double distance_Between_Locations(const location_t *a, const location_t *b)
+static inline double distance_Between_Locations(const location_t *const a, const location_t *const b)
 {
     int dx = a->x - b->x;           // x distance between a and b
     int dy = a->y - b->y;           // y distance between a and b
     return sqrt(dx * dx + dy * dy); // distance between a and b is the square root of the sum of the squares of the x and y distances (a^2 + b^2 = c^2)
 }
 
-static float total_Distance(job_t *const job)
+static inline void swap(int *const a, int *const b)
+{
+    const int temp = *a; // store a in temporary variable
+    *a = *b;             // set a to b
+    *b = temp;           // set b to temporary variable
+}
+
+static float total_Distance(const job_t *const job)
 {
     // declare local variables
     float total = 0; // total distance
@@ -96,14 +103,7 @@ static void trial_order(job_t *const job, const enum mode_e mode)
     }
 }
 
-static void swap(int *const a, int *const b)
-{
-    int temp = *a; // store a in temporary variable
-    *a = *b;       // set a to b
-    *b = temp;     // set b to temporary variable
-}
-
-static void _permute(job_t *const job_buff, int l, int r)
+static void _permute(job_t *const job_buff, const __uint8_t l, const __uint8_t r)
 {
     if (l == r) // final recursion
     {
@@ -111,7 +111,7 @@ static void _permute(job_t *const job_buff, int l, int r)
     }
     else
     {
-        for (int i = l; i <= r; i++) // iterate through the job order
+        for (__uint8_t i = l; i <= r; i++) // iterate through the job order
         {
             swap(&job_buff->order[l], &job_buff->order[i]); // swap the current location with the next location
             _permute(job_buff, l + 1, r);                   // recursively call the function
@@ -187,14 +187,14 @@ static enum status_e parse_errors(const enum status_e status)
 // @required headers: stdio.h, math.h
 int main()
 {
-    for (ever)
+    for (ever) // doesn't really need a comment tbf
     {
         job_t job = {postal_register, 0, {0}}; // create a job object
 
         printf("\n\n\n\n\n\n\n\nWelcome to the delivery service!\nPlease enter your job request:\n\n"); // print welcome message
         if (parse_errors(get_job_request(&job)) == FATAL_ERROR)                                         // get the job request from the user if there is an error parse the error and restart the program
             continue;                                                                                   // continue to the next iteration of the loop
-        //
+
         optimize_route(&job); // optimize the route
 
         printf("\n\nThe shortest possible route to travel is %f:\n", total_Distance(&job)); // print the total distance of the job

@@ -62,8 +62,8 @@ enum mode_e
 // location struct for the postal register
 typedef struct location_s
 {
-    int x;         // x coordinate
-    int y;         // y coordinate
+    __int8_t x;    // x coordinate
+    __int8_t y;    // y coordinate
     char name[20]; // name of the location
 } location_t;
 
@@ -88,7 +88,17 @@ typedef struct job_s
 // @author: G. Downing
 // @date: 10-10-2022
 // @required headers: math.h , main.h for sqrt and location_t
-static double distance_Between_Locations(const location_t *a, const location_t *b);
+static inline double distance_Between_Locations(const location_t *const a, const location_t *const b);
+
+// @function: swap
+// @description: swaps two elements in an array
+// @input: pointers to each integer to be swapped
+// @output: swaps the two integers
+// @return: void
+// @author: G. Downing
+// @date: 10-10-2022
+// @required headers: none
+static inline void swap(int *const a, int *const b);
 
 // @function: total_Distance
 // @description: calculates the total distance of a journey
@@ -99,7 +109,7 @@ static double distance_Between_Locations(const location_t *a, const location_t *
 // @author: G. Downing
 // @date: 10-10-2022
 // @required headers: main.h for job_t
-static float total_Distance(job_t *const job);
+static float total_Distance(const job_t *const job);
 
 // @function: get_job_request
 // @description: gets the job request from the user
@@ -123,16 +133,6 @@ static enum status_e get_job_request(job_t *const job);
 // @required headers: main.h for job_t, mode_e
 static void trial_order(job_t *const job, const enum mode_e mode);
 
-// @function: swap
-// @description: swaps two elements in an array
-// @input: pointers to each integer to be swapped
-// @output: swaps the two integers
-// @return: void
-// @author: G. Downing
-// @date: 10-10-2022
-// @required headers: none
-static void swap(int *const a, int *const b);
-
 // @function: _permute
 // @description: recursively generates all permutations of the job order and calculates the total distance of each permutation to find the shortest order
 // @input: pointer to the postal register, pointer to the job, size of the job, pointer to the cache, pointer to the shortest order
@@ -142,7 +142,7 @@ static void swap(int *const a, int *const b);
 // @author: G. Downing
 // @date: 10-10-2022
 // @required headers: main.h for job_t
-static void _permute(job_t *const job_buff, int l, int r);
+static void _permute(job_t *const job_buff, const __uint8_t l, const __uint8_t r);
 
 // @function: optimize_route
 // @description: optimizes the route by generating all permutations of the job order
