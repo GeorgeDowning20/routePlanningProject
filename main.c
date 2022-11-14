@@ -1,12 +1,9 @@
 //-------------------------------------------------------------
-// @path: main.c
-// @author: G. Downing
-// @created on: 10-10-2022
-// @last modified: 10-10-2022
-// @version: 1.0
-// @language: c
-// @Copyright (c) 2022 G. Downing
-// @Description: program to find the fastest route to deliver up to 5 packages
+/// @file main.c
+/// @author G. Downing
+/// @date 10-10-2022
+/// @copyright (c) 2022 G. Downing
+/// @details Main file for program to find the fastest route to deliver up to 5 packages
 //-------------------------------------------------------------
 
 #include "main.h"              // include the header file
@@ -176,15 +173,55 @@ static enum status_e parse_errors(const enum status_e status)
 //                  Main Program
 //-------------------------------------------------------------
 
-// @function: main
-// @description: main function to run the program. first the user is prompted to enter enter a job. next the route is optimized and displayed
-// @input: job specification
-// @output: fastest route to complete job
-// @arguments: none
-// @return: void
-// @author: G. Downing
-// @date: 10-10-2022
-// @required headers: stdio.h, math.h
+/// @details main function to run the program.
+/// @details first the user is prompted to enter enter a job. next the route is optimized and displayed
+/// @param[in] scanf number of locations to visit
+/// @param[in] scanf position of each location
+/// @param[out] printf distance of optimised route
+/// @param[out] printf optimised route
+/// @author G. Downing
+/// @date 10-10-2022
+
+/** @test
+Input: \n
+        >>3 \n
+        >>1 2 3 \n
+\n
+Output: \n
+        >>25.041595\n
+        >>0 1 3 2 0 \n
+**/
+
+/** @test
+Input: \n
+        >>3 \n
+        >>3 2 1 \n
+\n
+Output: \n
+        >>25.041595\n
+        >>0 2 3 1 0 \n
+**/
+
+/** @test
+Input: \n
+        >>4 \n
+        >>1 2 3 4 \n
+\n
+Output: \n
+        >>25.044359 \n
+        >>0 2 3 1 4 0 \n
+**/
+
+/** @test
+Input: \n
+        >>4 \n
+        >>9 1 7 4 \n
+\n
+Output: \n
+        >>31.203493\n
+        >>0 1 7 9 4 0 \n
+**/
+
 int main()
 {
     for (ever) // doesn't really need a comment tbf
