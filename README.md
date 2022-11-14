@@ -11,4 +11,4 @@ there, write -lm
 For terminal:
 add -lm as a linker argument.  
 
-Code documentation: https://georgedowning20.github.io/routePlanningProject/index.html
+Doxygen documentation: https://georgedowning20.github.io/routePlanningProject/index.html

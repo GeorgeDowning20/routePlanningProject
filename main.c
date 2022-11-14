@@ -4,7 +4,7 @@
 /// @date 10-10-2022
 /// @copyright (c) 2022 G. Downing
 /// @details Main file for program to find the fastest route to deliver up to 5 packages
-/// @details documentation: https://georgedowning20.github.io/routePlanningProject/index.html
+/// @details Doxygen Documentation : https://georgedowning20.github.io/routePlanningProject/index.html
 //-------------------------------------------------------------
 
 #include "main.h"              // include the header file
